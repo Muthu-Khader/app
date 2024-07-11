@@ -1,0 +1,14 @@
+{
+  "name": "task-tracker",
+  "version": "1.0.0",
+  "description": "Tracks the task assigned to employees",
+  "main": "index.js",
+  "scripts": {
+    "compile-sass": "node-sass styles/main.scss styles/style.css -w"
+  },
+  "author": "MINT",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^9.0.0"
+  }
+}

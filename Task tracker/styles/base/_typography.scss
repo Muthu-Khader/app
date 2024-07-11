@@ -1,0 +1,17 @@
+.primary-heading {
+  font-size: 3.5rem;
+  font-weight: 700;
+  font-family: inherit;
+
+  @include respond(phone) {
+    font-size: 2.8rem;
+  }
+
+  &--grey {
+    color: $color-light-grey;
+  }
+
+  &--white {
+    color: $color-white;
+  }
+}
