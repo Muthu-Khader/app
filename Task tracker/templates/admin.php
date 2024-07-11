@@ -1,5 +1,6 @@
 <?php
 include "navigation.php";
+include "profile.php";
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +11,11 @@ include "navigation.php";
     <title>Task tracker</title>
     <link rel="stylesheet" href="../styles/style.css" />
   </head>
-  <body>
-    <?php load_nav() ?>
+  <body class="admin-profile">
+    <?php 
+    load_nav();
+    load_card()
+    ?>
+
   </body>
 </html>

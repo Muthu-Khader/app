@@ -44,7 +44,7 @@
     display: inline-block;
     text-decoration: none;
     border-bottom: 1px solid $color-primary-dark;
-    padding: 0.5rem;
+    padding: 1.5rem;
     transition: all 0.2s;
 
     @include respond(phone) {

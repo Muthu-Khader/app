@@ -1,0 +1,21 @@
+.header {
+  background-color: $color-primary-light;
+  box-shadow: 1rem 0 1.5rem $color-black;
+}
+
+.mint {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+
+  &-container {
+    flex-basis: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  &-logo {
+    width: 100%;
+  }
+}
