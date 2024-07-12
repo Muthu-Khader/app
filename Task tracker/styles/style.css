@@ -527,18 +527,11 @@ body {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   transform: translateY(0); }
 
-.admin {
-  height: 100vh;
+.admin-details {
+  flex-basis: 80%;
+  border-left: 1px solid #a4b1cd; }
+
+.admin-profile {
   display: flex;
-  background-color: #111927;
-  border-radius: 0; }
-  .admin-sidebar {
-    height: 100%;
-    flex-basis: 20%; }
-  .admin-details {
-    flex-basis: 80%;
-    border-left: 1px solid #a4b1cd; }
-  .admin-profile {
-    display: flex;
-    align-items: center;
-    justify-content: center; }
+  align-items: center;
+  justify-content: center; }

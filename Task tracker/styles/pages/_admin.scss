@@ -1,14 +1,4 @@
 .admin {
-  height: 100vh;
-  display: flex;
-  background-color: $color-dark-grey;
-  border-radius: 0;
-
-  &-sidebar {
-    height: 100%;
-    flex-basis: 20%;
-  }
-
   &-details {
     flex-basis: 80%;
     border-left: 1px solid $color-light-grey;
