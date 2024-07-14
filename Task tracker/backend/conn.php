@@ -36,7 +36,7 @@ function updateUserData($field,$value) {
 
     $query = "UPDATE ".$tb_name." SET ".$field." = ? WHERE EMAIL = ?";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("ss",$value, $email);
+    $stmt->bind_param("ss",$value, $email); 
     $stmt->execute();
 }
 ?>

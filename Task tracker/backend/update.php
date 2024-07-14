@@ -1,7 +1,6 @@
 <?php
 
 include_once "main.php";
-include_once "change_password.php";
 session_start();
 
 $user = $_SESSION['user'];
@@ -18,6 +17,8 @@ if($user){
     $newPassword = $_POST['newPassword'];
     $confirmPassword = $_POST['confirmPassword'];
 
+     // UPDATING PROFILE PICTURE
+
     if(isset($_FILES['userImage']['name'])){
         $userImage = $_FILES['userImage'];
         
@@ -33,26 +34,24 @@ if($user){
         $userImage = "user.png";
     }
 
+    // UPDATING PASSWORD
+    if($oldPassword !== "" && $newPassword !== "" && $confirmPassword !== ""){
+        $password = $user["PASSWORD"];
+        if(verify_hash($oldPassword,$password)){
+            $hash = hash_data($newPassword);
+            updateUserData("PASSWORD",$hash);
+        }else{
+            echo "Incorrect Password";
+        }
+    }
 
-
-if($updateName !== "" && $updateName !== $user["NAME"] ){
-    updateUserData("NAME",$updateName);
-}
-if($updateEmail !== "" && $updateEmail !== $user["EMAIL"] ){
-    updateUserData("EMAIL",$updateEmail);
-}
-
-
-if($oldPassword !== "" && $newPassword !== "" && $confirmPassword !== ""){
-    $password = $user["PASSWORD"];
-    if(verify_password($password,$oldPassword,$newPassword,$confirmPassword)){
-        updateUserData("PASSWORD",hash_data($newPassword));
-    }else{
-        echo "Incorrect Password";
+     // UPDATING NAME AND EMAIL
+    if($updateName !== "" && $updateName !== $user["NAME"] ){
+        updateUserData("NAME",$updateName);
+    }
+    if($updateEmail !== "" && $updateEmail !== $user["EMAIL"] ){
+        updateUserData("EMAIL",$updateEmail);
     }
 }
-}
     
-    
-
 ?>

@@ -26,7 +26,7 @@ function load_card(){
   </div>
   <div class="card__side card__side--back">
     <div class="card__cta">
-      <a href="#popup" class="update-btn btn-dash">Update Profile</a>
+      <a href="#" class="update-btn btn-dash">Update Profile</a>
     </div>
   </div>
 </div>
