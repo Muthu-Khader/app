@@ -1,3 +1,11 @@
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
 @mixin center-horizontal-vertical {
   position: absolute;
   top: 50%;

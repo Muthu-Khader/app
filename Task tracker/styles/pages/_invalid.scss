@@ -37,15 +37,18 @@
 }
 
 .btn-dash {
+  &,
   &:link,
   &:visited {
     font-size: 1.5rem;
     color: $color-primary-light;
     display: inline-block;
     text-decoration: none;
+    border: none;
     border-bottom: 1px solid $color-primary-dark;
     padding: 1.5rem;
     transition: all 0.2s;
+    background-color: transparent;
 
     @include respond(phone) {
       font-size: 1rem;

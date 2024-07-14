@@ -42,7 +42,12 @@
 
   // FRONT END STYLING
   &__picture {
-    text-align: center;
+    align-self: center;
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid $color-dark-grey;
   }
 
   &__details {
@@ -58,7 +63,7 @@
         padding: 1rem;
 
         &:not(:last-child) {
-          border-bottom: 1px solid $color-light-grey;
+          border-bottom: 1px solid $color-night-grey;
         }
       }
     }
@@ -75,7 +80,7 @@
   }
 
   .user-logo {
-    width: 50%;
+    width: 100%;
   }
 
   // @include respond(tab-port) {
