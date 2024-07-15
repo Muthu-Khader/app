@@ -24,7 +24,8 @@ include "popup.php";
     const content = document.querySelector(".popup__content");
     const updateBtn = document.querySelector(".update-btn");
     const closeBtn = document.querySelector(".btn--close");
-    
+    const notify = document.querySelector(".count");
+
     updateBtn.addEventListener('click',function(){
       popup.classList.add('popup-active');
       content.classList.add('popup__content-active');
@@ -43,6 +44,12 @@ include "popup.php";
         content.classList.remove('popup__content-active');
       }
     })
+
+    if(notify.textContent === '0'){
+      notify.classList.add('hidden');
+    }
+
+
   </script>
   <script src="../script/pass.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

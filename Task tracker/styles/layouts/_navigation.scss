@@ -35,10 +35,8 @@
     right: 2.5rem;
     background-image: radial-gradient(
       circle,
-      rgba($color-black, 1),
-      $color-dark-green 40%,
-      $color-lime-green 70%,
-      rgba($color-black, 0.8)
+      $color-night-grey,
+      $color-night-grey
     );
     z-index: 1000;
     transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
@@ -172,5 +170,23 @@
     top: 0;
     transform: rotate(-135deg);
     // transform-origin is defaultly on the center of the element for rotation we can also change that rotation origin to left or right to that element
+  }
+
+  .navigation-count {
+    display: flex;
+    align-items: start;
+  }
+  .count {
+    margin-left: auto;
+    width: 2rem;
+    height: 2rem;
+    color: $color-white;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    background-color: $color-red;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

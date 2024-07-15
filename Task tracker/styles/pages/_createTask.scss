@@ -1,0 +1,64 @@
+.task {
+  &-bg {
+    background-color: $color-dark-grey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  &-container {
+    background-color: $color-night-grey;
+    min-height: 52rem;
+    width: 90rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  &-head {
+    padding: 5rem 10rem;
+    padding-bottom: 0;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 3.5rem;
+    width: 75%;
+    color: $color-primary-dark;
+
+    &-group {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      border: none;
+      align-items: center;
+    }
+
+    &-label {
+      font-size: 1.5rem;
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    &-input {
+      width: 50%;
+      padding: 1rem 2rem;
+      border-radius: 0.2rem;
+      transform: skewX(-5deg);
+
+      &:focus {
+        outline: none;
+        border-radius: 0 1rem 2rem rgba($color-black, 0.1);
+        border-bottom: 3.5px solid $color-primary-dark;
+      }
+    }
+  }
+  &-btn {
+    align-self: center;
+  }
+}

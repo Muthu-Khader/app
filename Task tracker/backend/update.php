@@ -1,7 +1,6 @@
 <?php
 
 include_once "main.php";
-session_start();
 
 $user = $_SESSION['user'];
 $email = $_SESSION['email'];
@@ -51,7 +50,11 @@ if($user){
     }
     if($updateEmail !== "" && $updateEmail !== $user["EMAIL"] ){
         updateUserData("EMAIL",$updateEmail);
+        $_SESSION['email'] = $updateEmail;
     }
+    echo "profile updated successfully";
+}else{
+
+    echo "profile updation failed";
 }
-    
 ?>

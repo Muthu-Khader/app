@@ -1,5 +1,21 @@
 <?php 
-function load_nav(){?>
+function load_nav(){
+ 
+
+  include "../backend/main.php";
+  global $conn;
+
+  $currentTime = time();
+  $twentyFourHoursLater = $currentTime + (24 * 60 * 60);
+  $twentyFourHoursLaterFormatted = date('Y-m-d H:i:s', $twentyFourHoursLater);
+
+  $sql = "SELECT EmployeeName, Description, EndDate FROM Tasks WHERE EndDate BETWEEN NOW() AND '{$twentyFourHoursLaterFormatted}'";
+
+  $result = $conn->query($sql);
+
+
+
+?>
 
 <div class="navigation">
   <input type="checkbox" class="navigation__checkbox" id="navi-toggle" />
@@ -11,19 +27,22 @@ function load_nav(){?>
   <nav class="navigation__nav">
     <ul class="navigation__list">
       <li class="navigation__item">
-        <a href="#" class="navigation__link">Add new employees</a>
+        <a href="../templates/createTask.php" class="navigation__link">Create task</a>
       </li>
       <li class="navigation__item">
-        <a href="#" class="navigation__link">Track Task status</a>
+        <a href="../templates/displayTasks.php" class="navigation__link">Assigned Tasks</a>
       </li>
-      <li class="navigation__item">
-        <a href="#" class="navigation__link">Assign Tasks</a>
+      <li class="navigation__item ">
+        <a href="../templates/notifications.php" class="navigation__link notification-count">
+          <span class="count"><?php echo $result->num_rows; ?></span>Notifications
+        </a>
+
       </li>
-      <li class="navigation__item">
+      <!-- <li class="navigation__item">
         <a href="#" class="navigation__link">Employee Details</a>
-      </li>
+      </li> -->
       <li class="navigation__item">
-        <a href="#" class="navigation__link navigation__link--red">sign out</a>
+        <a href="../backend/logout.php" class="navigation__link navigation__link--red">Logout</a>
       </li>
     </ul>
   </nav>

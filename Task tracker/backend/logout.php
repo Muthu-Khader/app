@@ -1,3 +1,9 @@
+<?php
+include_once "main.php";
+
+session_destroy();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -25,12 +31,12 @@
                 Admin Login
               </h1>
               <!-- Action need to changed in DOM -->
-              <form action="backend/admin.php" method="post">
+              <form action="admin.php" method="post">
                 <div class="form-group">
                   <label for="email"
                     ><img
                       class="form-img"
-                      src="img/icons8-email-64.png"
+                      src="../img/icons8-email-64.png"
                       alt="email logo"
                   /></label>
                   <input
@@ -46,7 +52,7 @@
                   <label for="key"
                     ><img
                       class="form-img"
-                      src="img/icons8-key-64.png"
+                      src="../img/icons8-key-64.png"
                       alt="email logo"
                   /></label>
                   <input
@@ -85,6 +91,6 @@
       </div>
     </div>
 
-    <script src="script/login.js"></script>
+    <script src="../script/logout.js"></script>
   </body>
 </html>

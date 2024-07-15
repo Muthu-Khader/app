@@ -36,6 +36,12 @@ body {
   .primary-heading--white {
     color: #fff; }
 
+.tertiary-heading {
+  font-size: 2.5rem;
+  font-weight: 500; }
+  .tertiary-heading--grey {
+    color: #a4b1cd; }
+
 .center-text {
   text-align: center !important; }
 
@@ -323,7 +329,7 @@ body {
   position: fixed;
   top: 2.5rem;
   right: 2.5rem;
-  background-image: radial-gradient(circle, black, #006400 40%, #00ff00 70%, rgba(0, 0, 0, 0.8));
+  background-image: radial-gradient(circle, #202837, #202837);
   z-index: 1000;
   transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1); }
   @media only screen and (max-width: 56.25em) {
@@ -420,6 +426,23 @@ body {
 .navigation__checkbox:checked + .navigation__button .navigation__icon::after {
   top: 0;
   transform: rotate(-135deg); }
+
+.navigation .navigation-count {
+  display: flex;
+  align-items: start; }
+
+.navigation .count {
+  margin-left: auto;
+  width: 2rem;
+  height: 2rem;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  background-color: #f00;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
 
 .header {
   background-color: #b2f233;
@@ -694,3 +717,53 @@ body {
   display: flex;
   align-items: center;
   justify-content: center; }
+
+.task-bg {
+  background-color: #111927;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; }
+
+.task-container {
+  background-color: #202837;
+  min-height: 52rem;
+  width: 90rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem; }
+
+.task-head {
+  padding: 5rem 10rem;
+  padding-bottom: 0; }
+
+.task__form {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  width: 75%;
+  color: #7fbf00; }
+  .task__form-group {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    border: none;
+    align-items: center; }
+  .task__form-label {
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-style: italic; }
+  .task__form-input {
+    width: 50%;
+    padding: 1rem 2rem;
+    border-radius: 0.2rem;
+    transform: skewX(-5deg); }
+    .task__form-input:focus {
+      outline: none;
+      border-radius: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+      border-bottom: 3.5px solid #7fbf00; }
+
+.task-btn {
+  align-self: center; }
