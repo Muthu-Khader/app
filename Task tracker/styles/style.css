@@ -85,12 +85,12 @@ body {
   .card:hover .card__side--back {
     transform: rotateY(0); }
   .card__picture {
-    align-self: center;
+    overflow: hidden;
     width: 15rem;
     height: 15rem;
+    align-self: center;
     border-radius: 50%;
-    overflow: hidden;
-    border: 5px solid #111927; }
+    outline: 5px solid #111927; }
   .card__details {
     padding: 3rem; }
     .card__details ul {
@@ -111,7 +111,9 @@ body {
     left: 50%;
     transform: translate(-50%, -50%); }
   .card .user-logo {
-    width: 100%; }
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; }
   @media only screen and (max-width: 56.25em), only screen and (hover: none) {
     .card {
       height: auto;
@@ -191,7 +193,7 @@ body {
   width: 20rem;
   height: 20rem;
   border-radius: 50%;
-  border: 5px solid #7fbf00; }
+  outline: 5px solid #7fbf00; }
   .profile__left {
     display: flex;
     flex-direction: column;
@@ -200,7 +202,9 @@ body {
     align-self: center;
     gap: 3rem; }
   .profile-img {
-    width: 100%; }
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; }
 
 .update-form {
   display: flex;
