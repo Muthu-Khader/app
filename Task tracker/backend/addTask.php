@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $query = "INSERT INTO Tasks (EmployeeName, Description, StartDate, EndDate) VALUES ('$employeeName', '$description', '$startDate', '$endDate')";
         
         if (mysqli_query($conn, $query)) {
-            echo "New task created successfully";
+            include "../templates/admin.php";
         } else {
             echo "Error: " . $query . "<br>" . mysqli_error($conn);
         }

@@ -8,11 +8,13 @@ function login($password){
     global $conn; 
 
     $data = getUserData($conn,$user,$email);
+    $_SESSION['name'] = $data["NAME"];
     if($data){
         if(verify_hash($password,$data['PASSWORD'])){
             if($user === 'ADMIN'){
                 include "../templates/admin.php";
             }else{
+
                 include "../templates/employee.php";
             }
         }else{

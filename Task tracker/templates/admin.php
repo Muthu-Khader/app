@@ -45,6 +45,7 @@ include "popup.php";
       }
     })
 
+
     if(notify.textContent === '0'){
       notify.classList.add('hidden');
     }

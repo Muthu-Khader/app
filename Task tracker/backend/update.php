@@ -52,9 +52,12 @@ if($user){
         updateUserData("EMAIL",$updateEmail);
         $_SESSION['email'] = $updateEmail;
     }
-    echo "profile updated successfully";
-}else{
+    if($_SESSION['user'] === "ADMIN")
+        include "../templates/admin.php";
+    else
+        include "../templates/employee.php";
 
+}else{
     echo "profile updation failed";
 }
 ?>

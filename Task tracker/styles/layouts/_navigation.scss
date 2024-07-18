@@ -171,22 +171,22 @@
     transform: rotate(-135deg);
     // transform-origin is defaultly on the center of the element for rotation we can also change that rotation origin to left or right to that element
   }
+}
 
-  .navigation-count {
-    display: flex;
-    align-items: start;
-  }
-  .count {
-    margin-left: auto;
-    width: 2rem;
-    height: 2rem;
-    color: $color-white;
-    font-size: 1.5rem;
-    font-weight: bolder;
-    background-color: $color-red;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.notification-count:visited > .count {
+  display: hidden !important;
+}
+
+.count {
+  margin-left: auto;
+  width: 2rem;
+  height: 2rem;
+  color: $color-white;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  background-color: $color-red;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

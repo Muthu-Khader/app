@@ -2,7 +2,11 @@
 include_once "../backend/main.php";
 
 global $conn;
-$query = "SELECT * FROM Tasks";
+if($_SESSION['user'] === "ADMIN")
+    $query = "SELECT * FROM Tasks";
+else
+    $query = "SELECT * FROM Tasks WHERE EmployeeName = '{$_SESSION['name']}'";
+
 $result = mysqli_query($conn,$query);
 
 ?>
@@ -17,16 +21,21 @@ $result = mysqli_query($conn,$query);
         *{
             box-sizing:border-box;
         }
+
+        body{
+            position: relative;
+            background-color: #121212;
+            color: #7fbf00;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            min-height:100vh;
+        }
         
-        body {
-        background-color: #121212;
-        color: #7fbf00;
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 20px;
-        min-height:100vh;
+        .container {
         display:flex;
         justify-content:center;
+        position: relative;
         }
 
         .task-bg {
@@ -89,41 +98,77 @@ $result = mysqli_query($conn,$query);
         border: 1px solid #444444;
         }
 
+        .back-btn{
+            positiom:fixed;
+            background-color:#fff;
+            width:40px;
+            height:40px;
+            border-radius:50%;
+            top:5px;
+            left:5px;
+            display: flex;
+            align-items:center;
+            justify-content:center;
+
+
+        }
+
+        .back-btn > a:link,a:visited{
+            text-decoration:none;
+            color:#000;
+            font-size:25px;
+            font-style:italic;
+            font-weight:600;
+        }
+
     </style>
 </head>
 <body>
-    <div class="task-bg">
-        <div class="task-container align-normal">
-            <h3 class="tertiary-heading tertiary-heading--grey task--head center-text">Tasks Assigned</h3>
-            <div class="table-container">
-                <table class="dark-table">
-                    <thead>
-                        <tr>
-                            <th class="task--heading">Employee Name</th>
-                            <th class="task--heading">Task</th>
-                            <th class="task--heading">Start date</th>
-                            <th class="task--heading">End date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                            if(mysqli_num_rows($result)){
-                                while($row = mysqli_fetch_assoc($result)){
-                                    ?>
-                                    <tr class="task">
-                                        <td><?php echo $row['EmployeeName'] ?></td>
-                                        <td><?php echo $row['Description'] ?></td>
-                                        <td><?php echo $row['StartDate'] ?></td>
-                                        <td><?php echo $row['EndDate'] ?></td>
-                                    </tr>
-                                <?php
+    <div class="back-btn">
+        <?php
+        if($_SESSION['user'] === "ADMIN")
+            echo '<a href="../templates/admin.php">&larr;</a>';   
+        else
+            echo '<a href="../templates/employee.php">&larr;</a>';
+        ?>
+    </div>
+    <div class="container"> 
+        <div class="task-bg">
+            <div class="task-container align-normal">
+                <h3 class="tertiary-heading tertiary-heading--grey task--head center-text">Tasks Assigned</h3>
+                <div class="table-container">
+                    <table class="dark-table">
+                        <thead>
+                            <tr>
+                                <th class="task--heading">Employee Name</th>
+                                <th class="task--heading">Task</th>
+                                <th class="task--heading">Start date</th>
+                                <th class="task--heading">End date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                                if(mysqli_num_rows($result)){
+                                    while($row = mysqli_fetch_assoc($result)){
+                                        ?>
+                                        <tr class="task">
+                                            <td><?php echo $row['EmployeeName'] ?></td>
+                                            <td><?php echo $row['Description'] ?></td>
+                                            <td><?php echo $row['StartDate'] ?></td>
+                                            <td><?php echo $row['EndDate'] ?></td>
+                                        </tr>
+                                        
+                                        <?php 
+        
+                                    }
                                 }
-                            }
-                        ?>
-                    </tbody>
-                </table>
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
+
 </body>
 </html>

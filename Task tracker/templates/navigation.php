@@ -9,11 +9,12 @@ function load_nav(){
   $twentyFourHoursLater = $currentTime + (24 * 60 * 60);
   $twentyFourHoursLaterFormatted = date('Y-m-d H:i:s', $twentyFourHoursLater);
 
-  $sql = "SELECT EmployeeName, Description, EndDate FROM Tasks WHERE EndDate BETWEEN NOW() AND '{$twentyFourHoursLaterFormatted}'";
+  if($_SESSION['user'] === "ADMIN")
+    $sql = "SELECT EmployeeName, Description, EndDate FROM Tasks WHERE EndDate BETWEEN NOW() AND '{$twentyFourHoursLaterFormatted}'";
+  else
+    $sql = "SELECT EmployeeName, Description, EndDate FROM Tasks WHERE EndDate BETWEEN NOW() AND '{$twentyFourHoursLaterFormatted}' AND EmployeeName = '{$_SESSION['name']}'";
 
   $result = $conn->query($sql);
-
-
 
 ?>
 

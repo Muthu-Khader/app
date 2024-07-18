@@ -427,11 +427,10 @@ body {
   top: 0;
   transform: rotate(-135deg); }
 
-.navigation .navigation-count {
-  display: flex;
-  align-items: start; }
+.notification-count:visited > .count {
+  display: hidden !important; }
 
-.navigation .count {
+.count {
   margin-left: auto;
   width: 2rem;
   height: 2rem;
@@ -709,11 +708,12 @@ body {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   transform: translateY(0); }
 
-.admin-details {
-  flex-basis: 80%;
-  border-left: 1px solid #a4b1cd; }
-
 .admin-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.emp-profile {
   display: flex;
   align-items: center;
   justify-content: center; }
