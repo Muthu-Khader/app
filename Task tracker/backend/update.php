@@ -45,13 +45,29 @@ if($user){
     }
 
      // UPDATING NAME AND EMAIL
-    if($updateName !== "" && $updateName !== $user["NAME"] ){
-        updateUserData("NAME",$updateName);
+    if($_SESSION['user'] === "ADMIN"){
+
+        if($updateName !== "" && $updateName !== $user["NAME"] ){
+            updateUserData("NAME",$updateName);
+        }
+        
+    }else{
+        $query = "SELECT * FROM Tasks WHERE EmployeeName = '{$_SESSION['name']}'";
+        $result = mysqli_query($conn,$query);
+        $rows =mysqli_num_rows($result); 
+        if($rows === 0){
+            if($updateName !== "" && $updateName !== $user["NAME"] ){
+                updateUserData("NAME",$updateName);
+                $_SESSION['name'] = $updateName;
+            }
+        }    
     }
+
     if($updateEmail !== "" && $updateEmail !== $user["EMAIL"] ){
         updateUserData("EMAIL",$updateEmail);
         $_SESSION['email'] = $updateEmail;
     }
+
     if($_SESSION['user'] === "ADMIN")
         include "../templates/admin.php";
     else
