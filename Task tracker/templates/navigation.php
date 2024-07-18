@@ -1,18 +1,17 @@
 <?php 
 function load_nav(){
  
-
   include "../backend/main.php";
   global $conn;
-
+  
   $currentTime = time();
-  $twentyFourHoursLater = $currentTime + (24 * 60 * 60);
-  $twentyFourHoursLaterFormatted = date('Y-m-d H:i:s', $twentyFourHoursLater);
+  $seventyTwoHoursLater = $currentTime + (72 * 60 * 60);
+  $seventyTwoHoursLaterFormatted = date('Y-m-d H:i:s', $seventyTwoHoursLater);
 
   if($_SESSION['user'] === "ADMIN")
-    $sql = "SELECT EmployeeName, Description, EndDate FROM Tasks WHERE EndDate BETWEEN NOW() AND '{$twentyFourHoursLaterFormatted}'";
+    $sql = "SELECT EmployeeName, Description, EndDate FROM Tasks WHERE EndDate BETWEEN NOW() AND '{$seventyTwoHoursLaterFormatted}'";
   else
-    $sql = "SELECT EmployeeName, Description, EndDate FROM Tasks WHERE EndDate BETWEEN NOW() AND '{$twentyFourHoursLaterFormatted}' AND EmployeeName = '{$_SESSION['name']}'";
+    $sql = "SELECT EmployeeName, Description, EndDate FROM Tasks WHERE EndDate BETWEEN NOW() AND '{$seventyTwoHoursLaterFormatted}' AND EmployeeName = '{$_SESSION['name']}'";
 
   $result = $conn->query($sql);
 
